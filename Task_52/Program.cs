@@ -58,6 +58,8 @@ Console.WriteLine($"Среднее арифметическое каждого �
 
 
 
+
+
 int[,] arrayResult = GetArray(rows, cols);
 Console.WriteLine("Массив: ");
 PrintArray(arrayResult);
