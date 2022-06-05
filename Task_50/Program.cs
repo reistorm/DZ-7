@@ -14,6 +14,7 @@ Console.WriteLine("Введите количество столбцов: ");
 int cols = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите число для поиска: ");
 int number = int.Parse(Console.ReadLine());
+string result = $"Число {number} присутствует в массиве";
 int[,] GetArray(int row, int col)
 {
     int[,] array = new int[row, col];
@@ -23,12 +24,12 @@ int[,] GetArray(int row, int col)
         for (int j = 0; j < array.GetLength(1); j++)
         {
             array[i, j] = rnd.Next(10);
-            if (array[i, j] == number) Console.WriteLine("Yes");
-            else
+            if (array[i, j] == number) 
             {
-                Console.WriteLine("Такого элемента нет");
+                result = $"Число {number} присутствует в массиве";
+                break;
             }
-
+            
         }
     }
     return array;
@@ -53,4 +54,5 @@ void PrintArray(int[,] array)
 int[,] arrayResult = GetArray(rows, cols);
 Console.WriteLine("Массив: ");
 PrintArray(arrayResult);
+Console.WriteLine(result);
 
