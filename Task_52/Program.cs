@@ -41,20 +41,25 @@ void PrintArray(int[,] array)
 
     }
 }
-int[,] AverangeMean(int[,] array)
+int[,] array = GetArray(rows, cols);
+double[] sum = new double[cols];
+for (int i = 0; i < array.GetLength(0); i++)
 {
-    int result = 0;
-    for (int j = 0; j < array.GetLength(1); j++)
+    for (int j = 1; j < array.GetLength(1); j++)
+    
     {
-        for (int i = 0; i < array.GetLength(0); i++)
-        {
-            result = (result + array[i, j]) / cols;
-            Console.WriteLine(result);
-        }
+        sum[i] = sum[i] + array[j-1, i];
     }
-    return;
 }
-Console.WriteLine($"Среднее арифметическое каждого столбца: ");
+for (int i = 0; i < array.GetLength(0); i++)
+{
+    double result = sum[i] / cols;
+    Console.Write($"Среднее арифметическое каждого столбца: {result}");
+    Console.WriteLine();
+
+}
+
+
 
 
 
@@ -63,5 +68,4 @@ Console.WriteLine($"Среднее арифметическое каждого �
 int[,] arrayResult = GetArray(rows, cols);
 Console.WriteLine("Массив: ");
 PrintArray(arrayResult);
-int [,] newarrayResult = AverangeMean();
-PrintArray(newarrayResult);
+
