@@ -42,7 +42,7 @@ void PrintArray(int[,] array)
     }
 }
 
-void FindIndex(int [,] array)
+int FindIndex(int [,] array)
 {
     Console.WriteLine("Введите число для поиска: ");
     int number = int.Parse(Console.ReadLine());
@@ -51,6 +51,10 @@ void FindIndex(int [,] array)
         for (int j = 0; j < array.GetLength(1); j++)
         {
             if (array[i,j] == number) Console.WriteLine("Yes");
+            else 
+            {
+                Console.WriteLine("Такого элемента нет");
+            }
         }
     }
 }
@@ -58,4 +62,5 @@ void FindIndex(int [,] array)
 int[,] arrayResult = GetArray(rows, cols);
 Console.WriteLine("Массив: ");
 PrintArray(arrayResult);
-FindIndex();
+
+FindIndex(findin);
