@@ -12,7 +12,8 @@ Console.WriteLine("Введите количество строк: ");
 int rows = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите количество столбцов: ");
 int cols = int.Parse(Console.ReadLine());
-
+Console.WriteLine("Введите число для поиска: ");
+int number = int.Parse(Console.ReadLine());
 int[,] GetArray(int row, int col)
 {
     int[,] array = new int[row, col];
@@ -22,6 +23,11 @@ int[,] GetArray(int row, int col)
         for (int j = 0; j < array.GetLength(1); j++)
         {
             array[i, j] = rnd.Next(10);
+            if (array[i, j] == number) Console.WriteLine("Yes");
+            else
+            {
+                Console.WriteLine("Такого элемента нет");
+            }
 
         }
     }
@@ -42,25 +48,9 @@ void PrintArray(int[,] array)
     }
 }
 
-int FindIndex(int [,] array)
-{
-    Console.WriteLine("Введите число для поиска: ");
-    int number = int.Parse(Console.ReadLine());
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            if (array[i,j] == number) Console.WriteLine("Yes");
-            else 
-            {
-                Console.WriteLine("Такого элемента нет");
-            }
-        }
-    }
-}
+
 
 int[,] arrayResult = GetArray(rows, cols);
 Console.WriteLine("Массив: ");
 PrintArray(arrayResult);
 
-FindIndex(findin);
